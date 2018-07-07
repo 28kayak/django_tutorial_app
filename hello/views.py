@@ -18,6 +18,22 @@ from django.http import HttpResponse
 #    result = "Your ID: " + str(id) + " Name: " + str(nickname)
 #    return HttpResponse(result)
 
-def index(request):
+#def index(request):
     #return render(request, 'hello/index.html')
-    return render(request, 'hello_temp/index.html')
+#    return render(request, 'hello_temp/index.html')
+
+def index(request):
+    params = {
+        "title" : "Hello Index",
+        "msg" : "This is a sample page redering in index function",
+        "goto" : "next"
+    }
+    return render(request, 'hello_temp/index.html', params)
+
+def next(request):
+    params = {
+        'title': "Hello/Next",
+        'msg': "this is the next page.",
+        'goto': "index"
+    }
+    return render(request, 'hello_temp/index.html', params)
